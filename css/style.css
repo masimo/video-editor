@@ -1,0 +1,11 @@
+div.video_controllers{
+    display: block; 
+}
+    div.time_line{
+        height: 15px;
+        background-color: #cfdfdf;
+    }
+        div.progress_bar{
+            width: 100%;
+            background-color: #F00;
+        }

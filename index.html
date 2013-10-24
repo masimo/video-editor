@@ -2,18 +2,41 @@
 <html>
     <head>
         <title>Video Editor</title>
+        <link rel="stylesheet" href="./css/reset-min.css">
+        <link rel="stylesheet" href="./css/style.css">
         <script src="./js/lib/jquery-1.10.2.min.js"></script>
-        <script src="./js/lib/video.js"></script>
-        <link rel="stylesheet" href="./css/video/video-js.css">
+        
+        <!--<script src="./js/lib/video.js"></script>
+        <link rel="stylesheet" href="./css/video/video-js.css"> -->
         <script src="./js/video-editor.0.0.1.js"></script>
     </head>
     <body>
-        <video id="videoScreen" class="video-js vjs-default-skin"
+        <!-- <video id="videoScreen" class="video-js vjs-default-skin"
             controls preload="auto" width="640" height="264"
             poster="./media/img/oceans-clip.png" >
+        </video> -->
+
+        <video id="video1" width="800">
+          <source src="http://stream.flowplayer.org/bauhaus/624x260.mp4" type="video/mp4">
+          Your browser does not support HTML5 video.
         </video>
-        <div class="main_wrap">
-            <input id="fileUpload" type="file" name="" value="" placeholder="Upload file..">
+
+        <!-- <video id="videoScreen" class="video-js vjs-default-skin"
+            controls preload="auto"
+            poster="http://video-js.zencoder.com/oceans-clip.png"
+            >
+            <source src="../media/video/oceans-clip.mp4" type='video/mp4' />
+        </video> -->
+
+        <div class="video_controllers">
+            <div class="time_line">
+                <div class="progress_bar"></div>
+            </div>
+            <div class="main_wrap">
+                <input id="fileUpload" type="file" name="" accept="image/*,video/*,audio/*" value="" placeholder="Upload file..">
+            </div>
+            <button id="playIt" type="">Play It!</button>
+            <button id="pause" type="">pause!</button>
         </div>
     </body>
 </html>
