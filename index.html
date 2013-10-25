@@ -8,7 +8,9 @@
         
         <!--<script src="./js/lib/video.js"></script>
         <link rel="stylesheet" href="./css/video/video-js.css"> -->
+        <script src="./js/VideoEditor.js"></script>
         <script src="./js/video-editor.0.0.1.js"></script>
+
     </head>
     <body>
         <!-- <video id="videoScreen" class="video-js vjs-default-skin"
@@ -16,12 +18,10 @@
             poster="./media/img/oceans-clip.png" >
         </video> -->
 
-        <video id="video1" width="800">
-          <source src="http://stream.flowplayer.org/bauhaus/624x260.mp4" type="video/mp4">
-            <source src="../media/video/oceans-clip.mp4" type='video/mp4' />
-          Your browser does not support HTML5 video.
-        </video>
+        <div id="videoWrap">
 
+        </div>
+        
         <!-- <video id="videoScreen" class="video-js vjs-default-skin"
             controls preload="auto"
             poster="http://video-js.zencoder.com/oceans-clip.png"
@@ -29,16 +29,40 @@
             <source src="../media/video/oceans-clip.mp4" type='video/mp4' />
         </video> -->
 
+
         <div class="video_controllers">
-            <div class="time_line">
-                <div class="progress_bar"></div>
-            </div>
+            
             <div class="main_wrap">
-                <input id="fileUpload" type="file" name="" accept="image/*,video/*,audio/*" value="" placeholder="Upload file..">
+                <input id="fileUpload" type="file" name="" accept="image/*,video/*,audio/*" value="./media/" placeholder="Upload file..">
             </div>
             <button id="playIt" type="">Play It!</button>
             <button id="pause" type="">pause!</button>
             <button id="nextClip" type="">Next</button>
+            <div class="tracks_line">
+                <div class="time_line">
+                    <div class="progress_bar"></div>
+                </div>
+                <div class="track_wrap">
+                    <div class="track_toollbar"></div>
+                    <div class="track_line"></div>
+                </div>
+                <div class="track_wrap">
+                    <div class="track_toollbar"></div>
+                    <div class="track_line"></div>
+                </div>
+                <div class="track_wrap">
+                    <div class="track_toollbar"></div>
+                    <div class="track_line"></div>
+                </div>
+                <div class="audio_wrap">
+                    <div class="audio_toollbar"></div>
+                    <div class="audio_line"></div>
+                </div>
+                <div class="audio_wrap">
+                    <div class="audio_toollbar"></div>
+                    <div class="audio_line"></div>
+                </div>
+            </div>
 
         </div>
     </body>

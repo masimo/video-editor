@@ -1,11 +1,80 @@
+div#videoWrap{
+    position: relative;
+    overflow: hidden;
+    height: 450px;
+    width: 800px;
+}
+    #videoWrap video{
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
 div.video_controllers{
+    position: relative;
     display: block; 
 }
     div.time_line{
+        position: relative;
         height: 15px;
         background-color: #cfdfdf;
+        margin: 0 75px;
+        cursor: pointer;
     }
         div.progress_bar{
-            width: 100%;
+            position: absolute;
+            top: 0;
+            width: 1px;
+            height: 225px;
+            left: 0%;
             background-color: #F00;
+            cursor: e-resize;
+            
+            -webkit-transition: left .10s linear;
+               -moz-transition: left .10s linear;
+                -ms-transition: left .10s linear;
+                 -o-transition: left .10s linear;
+                    transition: left .10s linear;
         }
+    div.track_wrap{
+        display: block;
+        width: 100%;
+        background-color: rgb(243, 243, 243);
+    }
+        div.track_toollbar{
+            float: left;
+            height: 50px;
+            width: 70px;
+            border: 1px solid #cfcdcd;
+            -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.05)inset;
+                    box-shadow: 0 0 5px rgba(0,0,0,0.05)inset;
+        }
+        div.track_line{
+            border: 1px solid #cfcdcd;
+            margin: 2px 75px;
+            height: 50px;
+            
+            -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.25)inset;
+                    box-shadow: 0 0 5px rgba(0,0,0,0.25)inset;
+        }
+    div.audio_wrap{
+        display: block;
+        width: 100%;
+        background-color: rgb(243, 243, 243);
+        
+    }
+        div.audio_toollbar{
+            float: left;
+            height: 20px;
+            width: 70px;
+            border: 1px solid #cfcdcd;
+            -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.05)inset;
+                    box-shadow: 0 0 5px rgba(0,0,0,0.05)inset;
+        }
+        div.audio_line{
+            border: 1px solid #cfcdcd;
+            margin: 2px 75px;
+            height: 20px;
+            
+            -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.25)inset;
+                    box-shadow: 0 0 5px rgba(0,0,0,0.25)inset;
+        }        
