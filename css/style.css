@@ -48,6 +48,16 @@ div.video_controllers{
             -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.05)inset;
                     box-shadow: 0 0 5px rgba(0,0,0,0.05)inset;
         }
+            label.label_upload_file{
+                display: inline-block;
+                vertical-align: top;
+                padding: 1px;
+                cursor: pointer;
+            }
+                label.label_upload_file input.file_upload{
+                    position: absolute;
+                    clip: rect(0, 0, 0, 0);
+                }
         div.track_line{
             border: 1px solid #cfcdcd;
             margin: 2px 75px;
@@ -77,4 +87,25 @@ div.video_controllers{
             
             -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.25)inset;
                     box-shadow: 0 0 5px rgba(0,0,0,0.25)inset;
-        }        
+        }
+.ui_icon{
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    height: 16px;
+    width: 16px;
+    background-color: transparent;
+    background-image: url('../img/icons_templ.png');
+    
+}
+.ui_icon_open{
+    background-position: 0 0;   
+}
+.ui_icon_remove{
+    background-position: 0 -16px;   
+}
+.btn_transparent{
+    padding: 1px;
+    background: none;
+    border:none;
+}

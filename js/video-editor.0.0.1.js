@@ -6,13 +6,8 @@ $(function() {
         timeLine: $('.time_line'),
         play: $('#playIt'),
         pause: $('#pause'),
-        nextClip: $('#nextClip'),
         progressBar: $('.progress_bar'),
-        fileUpload: $('#fileUpload')
-    }
-    var resorces = {
-        remote: 'http://stream.flowplayer.org/bauhaus/624x260.mp4',
-        local: './media/video/oceans-clip.mp4'
+        fileUpload: $('.track_toollbar .file_upload')
     }
 
     var timeLineInterval = null;
@@ -23,6 +18,7 @@ $(function() {
         duration: 0
     }
 
+    var TimeLine;
 
     selectors.play.bind("click", function() {
 
@@ -34,6 +30,12 @@ $(function() {
         everyTrack.call(playTime.tracks, function(value) {
 
             if (value.defParams.isPlaying) {
+
+                var src = value.player.src;
+
+                value.player.src = src + '#t=' + '5,10';
+
+                console.log(value.player.src);
 
                 value.player.play();
 
@@ -53,14 +55,14 @@ $(function() {
         //get file name from input[file]
         var fileName = $(this).val().split('/').pop().split('\\').pop();
 
-        //create link to our local file
+        //create link to our local file and new id for video element
         var sorce = event.target.defaultValue + '' + fileName,
-            _id = setId();
+            _id = setNewId();
 
         console.time('load time ');
 
         /*Create new constructor with linked 
-         * sorce file and oper properties add it object with desired properties
+         * sorce file and oper properties add to it object with desired properties
          */
 
         var newPlayer = new VideoEditor({
@@ -68,7 +70,7 @@ $(function() {
             src: sorce,
             width: 800,
             height: 450,
-            volume: 0
+            volume: 0.2
         })
 
         //We need to know if this track can play
@@ -81,7 +83,7 @@ $(function() {
             newPlayer.defParams.stopPlaying = playTime.duration;
 
             playTime.tracks.push(newPlayer);
-            console.log(playTime.duration);
+
 
             console.timeEnd('load time ');
         });
@@ -117,7 +119,9 @@ $(function() {
         clearInterval(timeLineInterval);
     });
 
-    function setId() {
+    //creates new unique id for video element
+
+    function setNewId() {
         var _id = Math.random().toString(36).substring(2);
 
         //If id already exist then try another id
@@ -128,13 +132,14 @@ $(function() {
         return _id;
     }
 
+
     function updateTimeLine() {
 
         var progress = null;
 
         everyTrack.call(playTime.tracks, function(track) {
 
-            //check if this track have right time limits to play
+          /*  //check if this track have right time limits to play
             if (track.defParams.startPlaying <= playTime.progress &&
                 track.defParams.stopPlaying >= playTime.progress) {
 
@@ -142,14 +147,14 @@ $(function() {
                     progress = track.player.currentTime;
                 };
 
-                //it should be play
+                //update flag, it should be play
                 track.defParams.isPlaying = true;
             } else {
 
                 //it should be stop
                 stopPlaying(track);
 
-            };
+            };*/
         });
 
         if (progress !== null) {
@@ -180,6 +185,8 @@ $(function() {
     function stopPlaying(track) {
         track.player.pause();
         track.defParams.isPlaying = false;
+
+        //Check if this is only one track in editor if true then stop playing
         if (playTime.tracks.length === 1) {
             clearInterval(timeLineInterval);
         };
@@ -194,4 +201,30 @@ $(function() {
             callback(this);
         });
     }
+
+
+
+    var PlayStopVideo = function(player, timeLeft) {
+        
+        var self = this;
+
+        self.playVideo = function() {
+            player.play();
+            delete self.timeoutID;
+        };
+        self.setup = function() {
+
+            self.timeoutID = window.setTimeout(function() {
+                self.playVideo();
+            }, 1000 * timeLeft);
+        };
+        self.stop = function() {
+            if (typeof self.timeoutID === "number") {
+                player.pause();
+                window.clearTimeout(self.timeoutID);
+                delete self.timeoutID;
+            }
+        };
+
+    };
 });

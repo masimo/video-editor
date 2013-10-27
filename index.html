@@ -10,17 +10,16 @@
         <link rel="stylesheet" href="./css/video/video-js.css"> -->
         <script src="./js/VideoEditor.js"></script>
         <script src="./js/video-editor.0.0.1.js"></script>
-
+        
     </head>
     <body>
         <!-- <video id="videoScreen" class="video-js vjs-default-skin"
             controls preload="auto" width="640" height="264"
             poster="./media/img/oceans-clip.png" >
         </video> -->
+        <div id="videoWrap"></div>
 
-        <div id="videoWrap">
-
-        </div>
+        <video id="video" width="800" height="450" ></video>
         
         <!-- <video id="videoScreen" class="video-js vjs-default-skin"
             controls preload="auto"
@@ -28,42 +27,62 @@
             >
             <source src="../media/video/oceans-clip.mp4" type='video/mp4' />
         </video> -->
-
-
         <div class="video_controllers">
             
-            <div class="main_wrap">
-                <input id="fileUpload" type="file" name="" accept="image/*,video/*,audio/*" value="./media/" placeholder="Upload file..">
-            </div>
             <button id="playIt" type="">Play It!</button>
             <button id="pause" type="">pause!</button>
-            <button id="nextClip" type="">Next</button>
             <div class="tracks_line">
                 <div class="time_line">
                     <div class="progress_bar"></div>
                 </div>
                 <div class="track_wrap">
-                    <div class="track_toollbar"></div>
+                    <div class="track_toollbar">
+                        <label class="label_upload_file" for="lane_1">
+                            <input id="lane_1" class="file_upload" type="file" name="" accept="image/*,video/*,audio/*" value="./media/" placeholder="Upload file..">
+                            <i class="ui_icon ui_icon_open"></i>
+                        </label>
+                    </div>
                     <div class="track_line"></div>
                 </div>
                 <div class="track_wrap">
-                    <div class="track_toollbar"></div>
+                    <div class="track_toollbar">
+                        <label class="label_upload_file" for="lane_2">
+                            <input id="lane_2" class="file_upload" type="file" name="" accept="image/*,video/*,audio/*" value="./media/" placeholder="Upload file..">
+                            <i class="ui_icon ui_icon_open"></i>
+                        </label>
+                    </div>
                     <div class="track_line"></div>
                 </div>
                 <div class="track_wrap">
-                    <div class="track_toollbar"></div>
+                    <div class="track_toollbar">
+                        <label class="label_upload_file" for="lane_3">
+                            <input id="lane_3" class="file_upload" type="file" name="" accept="image/*,video/*,audio/*" value="./media/" placeholder="Upload file..">
+                            <i class="ui_icon ui_icon_open"></i>
+                        </label>
+                    </div>
                     <div class="track_line"></div>
                 </div>
                 <div class="audio_wrap">
-                    <div class="audio_toollbar"></div>
+                    <div class="audio_toollbar">
+                        <label class="label_upload_file" for="lane_4">
+                            <input id="lane_4" class="file_upload" type="file" name="" accept="image/*,video/*,audio/*" value="./media/" placeholder="Upload file..">
+                            <i class="ui_icon ui_icon_open"></i>
+                        </label>
+                        <button type="button" class="btn_transparent"><i class="ui_icon ui_icon_remove"></i></button>
+                    </div>
+
                     <div class="audio_line"></div>
                 </div>
                 <div class="audio_wrap">
-                    <div class="audio_toollbar"></div>
+                    <div class="audio_toollbar">
+                        <label class="label_upload_file" for="lane_5">
+                            <input id="lane_5" class="file_upload" type="file" name="" accept="image/*,video/*,audio/*" value="./media/" placeholder="Upload file..">
+                            <i class="ui_icon ui_icon_open"></i>
+                        </label>
+                    </div>
                     <div class="audio_line"></div>
                 </div>
             </div>
-
         </div>
     </body>
 </html>
